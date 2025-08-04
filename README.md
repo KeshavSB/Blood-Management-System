@@ -63,3 +63,12 @@ BloodManagementSystem/
 ├── style.css            # Custom styling
 ├── script.js            # Frontend logic and API calls
 ├── README.md            # Project documentation
+
+## 🧑‍💼 About the Author
+
+**Keshav Suresh Bansal** is a Computer Science undergraduate with a passion for backend development, AI/ML, and full-stack projects.  
+This project was created as a part of his journey to deepen understanding of APIs, databases, and web integration.
+
+- 🔭 Currently working on Data Science and AIML projects
+- 📫 Reach out: [LinkedIn](https://linkedin.com/in/keshav-suresh-bansal-254412359) | [GitHub](https://github.com/KeshavSB)
+- 💡 Motto: *"Learn by building."*
