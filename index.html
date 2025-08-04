@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button onclick="scrollToTop()" id="backToTopBtn" class="btn btn-danger" style="position: fixed; bottom: 30px; right: 30px; display: none;">↑ Top</button>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Blood Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#donor">Register as Donor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#request">Request Blood</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hospital">Register Hospital</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#admin" onclick="checkAdminPassword()">Admin Panel</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!-- Hero Section -->
+<section class="hero-section text-center text-white d-flex flex-column justify-content-center align-items-center" style="height: 100vh; background: linear-gradient(120deg, #c82333, #a71d2a); position: relative; overflow: hidden;">
+    <h1 class="display-4 fw-bold mb-4">Save Lives by Donating Blood</h1>
+    <p class="lead mb-4">Your one unit of blood can bring someone back to life. Be a hero today!</p>
+    <button class="btn btn-light btn-lg" onclick="scrollToAdvantages()">Learn More</button>
+
+    <!-- Floating Blood Types -->
+    <div class="blood-types-animation">
+        <span class="blood-type">A+</span>
+        <span class="blood-type">O-</span>
+        <span class="blood-type">B+</span>
+        <span class="blood-type">AB-</span>
+        <span class="blood-type">A-</span>
+        <span class="blood-type">O+</span>
+        <span class="blood-type">AB+</span>
+        <span class="blood-type">B-</span>
+    </div>
+</section>
+
+<!-- Advantages Section -->
+<section id="advantages" class="py-5">
+    <div class="container text-center">
+        <h2 class="mb-4 text-danger">Why Donate Blood?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">💓 Save Lives</h5>
+                        <p class="card-text">One donation can save up to 3 lives. It's a gift that keeps on giving.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">💪 Health Benefits</h5>
+                        <p class="card-text">Regular donations may reduce harmful iron stores and improve cardiovascular health.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">🤝 Community Support</h5>
+                        <p class="card-text">Help hospitals and patients in your local area by maintaining blood supply.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="container mt-4" id="donor">
+        <h2>Register as Donor</h2>
+        <form id="donorForm">
+            <div class="mb-3"><input type="text" class="form-control" id="donorName" name="name" placeholder="Name" required></div>
+            <div class="mb-3"><input type="number" class="form-control" id="donorAge" name="age" placeholder="Age" required></div>
+            <div class="mb-3"><input type="text" class="form-control" id="donorContact" name="contact" placeholder="Contact" required></div>
+            <div class="mb-3">
+                <select class="form-control" id="donorBloodType" name="blood_type" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <div class="mb-3"><input type="date" class="form-control" id="donorDate" name="donation_date" required></div>
+            <button type="submit" class="btn btn-danger w-100">Register</button>
+        </form>
+    </div>
+
+    <div class="container mt-4" id="request">
+        <h2>Request Blood</h2>
+        <form id="requestForm">
+            <div class="mb-3"><input type="text" class="form-control" id="recipientName" name="name" placeholder="Name" required></div>
+            <div class="mb-3"><input type="number" class="form-control" id="recipientAge" name="age" placeholder="Age" required></div>
+            <div class="mb-3"><input type="text" class="form-control" id="recipientContact" name="contact" placeholder="Contact" required></div>
+            <div class="mb-3">
+                <select class="form-control" id="recipientBloodType" name="blood_type" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <div class="mb-3"><input type="date" class="form-control" id="recipientDate" name="request_date" required></div>
+            <button type="submit" class="btn btn-danger w-100">Submit Request</button>
+        </form>
+    </div>
+
+    <div class="container mt-4" id="hospital">
+        <h2>Register Hospital</h2>
+        <form id="hospitalForm">
+            <div class="mb-3"><input type="text" class="form-control" id="hospitalName" name="name" placeholder="Hospital Name" required></div>
+            <div class="mb-3"><input type="text" class="form-control" id="hospitalLocation" name="location" placeholder="Location" required></div>
+            <div class="mb-3"><input type="number" class="form-control" id="hospitalStaff" name="staff" placeholder="Staff Count" required></div>
+            <div class="mb-3"><input type="text" class="form-control" id="hospitalContact" name="contact" placeholder="Contact" required></div>
+            <button type="submit" class="btn btn-danger w-100">Register Hospital</button>
+        </form>
+    </div>
+
+    <div class="container mt-4 hidden" id="admin">
+        <h2>Admin Panel</h2>
+
+        <h3>Register Blood Bank</h3>
+        <form id="bloodBankForm">
+            <div class="mb-3"><input type="text" class="form-control" id="bankName" name="name" placeholder="Blood Bank Name" required></div>
+            <div class="mb-3"><input type="text" class="form-control" id="bankLocation" name="location" placeholder="Location" required></div>
+            <div class="mb-3"><input type="text" class="form-control" id="bankContact" name="contact" placeholder="Contact" required></div>
+            <button type="submit" class="btn btn-danger w-100">Register Blood Bank</button>
+        </form>
+
+        <h3>Add Blood Inventory</h3>
+        <form id="inventoryForm">
+            <div class="mb-3"><input type="number" class="form-control" id="inventoryBankId" name="bank_id" placeholder="Blood Bank ID" required></div>
+            <div class="mb-3"><input type="number" class="form-control" id="inventoryQuantity" name="quantity" placeholder="Quantity" required></div>
+            <div class="mb-3"><input type="date" class="form-control" id="inventoryExpiry" name="expiry_date" required></div>
+            <div class="mb-3">
+                <select class="form-control" id="inventoryBloodType" name="blood_type" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Add Inventory</button>
+        </form>
+        <h3>Update Blood Inventory</h3>
+        <form id="upinventoryForm">
+             <div class="mb-3"><input type="number" class="form-control" id="inventoryId" name="inventory_id" placeholder="Inventory ID" required></div>
+             <div class="mb-3"> <input type="number" class="form-control" id="inventoryQuantity" name="quantity" placeholder="Quantity" required></div>
+             <button type="submit" class="btn btn-danger w-100">Update Inventory</button>
+        </form>
+
+        <h3>Update Recipient Status</h3>
+        <form id="updateRecipientForm">
+            <div class="mb-3"><input type="number" class="form-control" id="updateRecipientId" name="recipient_id" placeholder="Recipient ID" required></div>
+            <div class="mb-3">
+                <select class="form-control" id="updateRecipientStatus" name="status">
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Update Status</button>
+        </form>
+
+        <h3>View Records</h3>
+        <div class="mb-3">
+            <button onclick="fetchData('/donors')" class="btn btn-outline-danger w-100 mb-2">View Donors</button>
+            <button onclick="fetchData('/recipients')" class="btn btn-outline-danger w-100 mb-2">View Recipients</button>
+            <button onclick="fetchData('/hospitals')" class="btn btn-outline-danger w-100 mb-2">View Hospitals</button>
+            <button onclick="fetchData('/bloodbanks')" class="btn btn-outline-danger w-100 mb-2">View Blood Banks</button>
+            <button onclick="fetchData('/bloodinventory')" class="btn btn-outline-danger w-100 mb-2">View Inventory Stock</button>
+        </div>
+        <div id="viewData" class="mt-3"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
